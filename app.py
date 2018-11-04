@@ -25,7 +25,7 @@ class Variant(db.Model):
     url = db.Column(db.Text)
     submitter = db.Column(db.Text)
     assembly = db.Column(db.Text)
-    Chr = db.Column(db.Text)
+    chr = db.Column(db.Text)
     genomic_start = db.Column(db.Text)
     genomic_stop = db.Column(db.Text)
     ref = db.Column(db.Text)
@@ -34,6 +34,10 @@ class Variant(db.Model):
     reported_ref = db.Column(db.Text)
     reported_alt = db.Column(db.Text)
 
+    @classmethod
+    def attributes(cls):
+        return cls.__table__.columns.keys()
+
     def as_dict(self):
        return {c.name: getattr(self, c.name) for c in self.__table__.columns}
 
@@ -41,12 +45,13 @@ class Variant(db.Model):
         return "<Variant (id=%s, gene='%s')>" % (self.id, self.gene)
 
 
-# return list of variants with gene equal to query parameter 'gene' 
+# return list of variants with gene equal to query parameter 'gene'
 @app.route('/variant')
 def variants():
     gene = request.args.get('gene')
     variants = [var.as_dict() for var in Variant.query.filter_by(gene=gene).all()]
-    return jsonify(variants)
+    response = {"attributes": Variant.attributes(), "hits": len(variants), "results": variants}
+    return jsonify(response)
 
 # suggest list of genes with query parameter 'gene'
 genes = [r[0] for r in db.engine.execute('SELECT DISTINCT(gene) FROM Variant')]

@@ -37,7 +37,7 @@ CREATE TABLE variant (
     url  TEXT,
     submitter  TEXT,
     assembly  TEXT,
-    Chr  TEXT,
+    chr  TEXT,
     genomic_start  TEXT,
     genomic_stop  TEXT,
     ref  TEXT,
