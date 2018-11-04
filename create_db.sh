@@ -1,20 +1,22 @@
 #!/bin/bash
 
 file="homework.db"
-
 #remove the database if it already exists
 if [ -f $file ] ; then
     rm $file
 fi
 
+#unzip file
 #remove the tsv header
 #remove all double quotes
 #remove all non utf8 char
 #add line number for row ids
+echo "processing tsv file..."
 tmp_file="rm_header_quotes_tmp.tsv"
-tail -n +2 $1 | awk '{gsub(/\"/,"")};1' | iconv -f utf-8 -t utf-8 -c | cat -n > $tmp_file
+unzip -a -p $1 | tail -n +2 | awk '{gsub(/\"/,"")};1' | iconv -f utf-8 -t utf-8 -c | cat -n > $tmp_file
 
 #import tsv file into a sqlite db
+echo "loading tsv file..."
 sqlite3 homework.db <<EOF
 .mode csv
 .separator \t
