@@ -1,0 +1,7 @@
+.search {
+  margin: 20px 0 30px;
+}
+
+.input-group > .rbt .rbt-input-hint-container {
+  display: inline-block;
+}
