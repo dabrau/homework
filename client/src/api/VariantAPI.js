@@ -1,6 +1,6 @@
 export const getVariants = (genes) => {
   const queryParamString = genes.length > 0 ? `?gene=${genes.join(',')}` : '';
-  return fetch(`http://localhost:5000/variant${queryParamString}`, {
+  return fetch(`/variant${queryParamString}`, {
       mode: 'cors',
       credentials: 'omit'
     })
@@ -8,7 +8,7 @@ export const getVariants = (genes) => {
 };
 
 export const getGeneSuggestions = queryString => {
-  return fetch(`http://localhost:5000/suggest?gene=${queryString}`, {
+  return fetch(`/suggest?gene=${queryString}`, {
       mode: 'cors',
       credentials: 'omit'
     })
