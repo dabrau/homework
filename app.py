@@ -56,7 +56,7 @@ def variants():
     return jsonify(response)
 
 # suggest list of genes with query parameter 'gene'
-genes = [r[0] for r in db.engine.execute('SELECT DISTINCT(gene) FROM Variant')]
+genes = [v[0] for v in Variant.query.with_entities(Variant.gene).distinct().all()]
 @app.route('/suggest')
 def suggest_genes():
     gene = request.args.get('gene')
