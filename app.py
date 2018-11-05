@@ -46,6 +46,9 @@ class Variant(db.Model):
     def __repr__(self):
         return "<Variant (id=%s, gene='%s')>" % (self.id, self.gene)
 
+@app.route('/')
+def index():
+    return render_template("index.html")
 
 # return list of variants with gene equal to query parameter 'gene'
 @app.route('/variant')
