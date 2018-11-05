@@ -45,7 +45,7 @@ At this point the app can be run locally.
 ```
 ./start_server.sh
 ```
-You should be able find the app running at http://localhost:50000
+You should be able find the app running at http://localhost:5000
 
 
 
