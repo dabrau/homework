@@ -24,7 +24,7 @@ CREATE TABLE variant (
     id INTEGER,
     gene  TEXT,
     nucleotide_change  TEXT,
-    protien_change  TEXT,
+    protein_change  TEXT,
     other_mappings  TEXT,
     alias  TEXT,
     transcripts  TEXT,

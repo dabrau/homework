@@ -12,7 +12,7 @@ class Variant(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     gene = db.Column(db.Text)
     nucleotide_change = db.Column(db.Text)
-    protien_change = db.Column(db.Text)
+    protein_change = db.Column(db.Text)
     other_mappings = db.Column(db.Text)
     alias = db.Column(db.Text)
     transcripts = db.Column(db.Text)
