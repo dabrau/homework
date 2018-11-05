@@ -1,8 +1,8 @@
 # Homework
 
 A genomic variant web application that allows a user to search for genomic variants based on a gene name and display the results in a tabular view.
-backend - Flask, SQLite, SQLAlchemy
-frontend - ReactJS, Webpack, Babel, Bootstrap
+- backend - Flask, SQLite, SQLAlchemy
+- frontend - ReactJS, Webpack, Babel, Bootstrap
 
 ## Getting Started
 
