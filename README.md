@@ -31,11 +31,11 @@ pip3 install -r requirements.txt
 ```
 
 
-Build SQLite3 db from zipped variant_results.tsv 'clinivitae_download.zip'
+Build SQLite3 db from zipped variant_results.tsv 'clinvitae_download.zip'
 
 *From root folder:*
 ```
-./create_db.sh /path/to/clinivitae_download.zip
+./create_db.sh /path/to/clinvitae_download.zip
 ```
 
 
