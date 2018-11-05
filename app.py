@@ -50,9 +50,13 @@ class Variant(db.Model):
 # return list of variants with gene equal to query parameter 'gene'
 @app.route('/variant')
 def variants():
-    gene = request.args.get('gene')
-    variants = [var.as_dict() for var in Variant.query.filter_by(gene=gene).all()]
-    response = {"attributes": Variant.attributes(), "hits": len(variants), "results": variants}
+    genes = request.args.get('gene')
+    response = {'attributes': Variant.attributes(), 'hits': 0, 'results': []}
+    if genes is not None:
+        genes = genes.split(',')
+        variants = Variant.query.filter(Variant.gene.in_(genes)).all()
+        response['hits'] = len(variants)
+        response['results'] = [var.as_dict() for var in variants]
     return jsonify(response)
 
 # suggest list of genes with query parameter 'gene'
