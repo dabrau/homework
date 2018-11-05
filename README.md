@@ -59,12 +59,14 @@ npm install
 ```
 
 To build assets into /client/dist
+
 *From /client folder:*
 ```
 npm build
 ```
 
 To work on a front-end only dev server localhost:8080
+
 *From /client folder:*
 ```
 npm start
@@ -73,13 +75,4 @@ npm start
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
 
