@@ -1,5 +1,14 @@
-.search {
-  margin: 20px 0 30px;
+
+.search-container {
+  margin: 20px 20px 30px 0;
+  diplay: flex;
+  
+}
+
+.search-container {
+  margin-left: auto;
+  max-width: 500px;
+  min-width: 320px;
 }
 
 .input-group > .rbt .rbt-input-hint-container {

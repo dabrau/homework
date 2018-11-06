@@ -28,7 +28,8 @@ class Search extends Component {
 
   render() {
     return (
-      <InputGroup className='search'>
+      <div className='search-container'>
+        <InputGroup className='search'>
         <AsyncTypeahead
           {...this.state}
           clearButton
@@ -46,7 +47,8 @@ class Search extends Component {
             <Glyphicon glyph='search'/>
           </Button>
         </InputGroup.Button>
-      </InputGroup>
+        </InputGroup>
+      </div>
     );
   }
 }

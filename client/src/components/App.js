@@ -5,6 +5,7 @@ import { getVariants } from '../api/VariantAPI';
 import { Grid, Row, Col } from 'react-bootstrap';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css'
 
 class App extends Component {
   state = {
@@ -23,14 +24,10 @@ class App extends Component {
 
   render() {
     return (
-      <Grid>
-        <Row>
-          <Col sm={6} smOffset={3} >
-            <Search onClick={this.getVariants} />
-          </Col>
-        </Row>
+      <div className='app-container'>
+        <Search onClick={this.getVariants} />
         <ResultsTable {...this.state} />
-      </Grid>
+      </div>
     );
   }
 }
