@@ -17,7 +17,7 @@ unzip -a -p $1 | tail -n +2 | awk '{gsub(/\"/,"")};1' | iconv -f utf-8 -t utf-8 
 
 #import tsv file into a sqlite db
 echo "loading tsv file..."
-sqlite3 homework.db <<EOF
+sqlite3 ./app/homework.db <<EOF
 .mode csv
 .separator \t
 CREATE TABLE variant (
