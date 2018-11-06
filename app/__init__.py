@@ -15,22 +15,27 @@ db.init_app(app)
 def index():
     return render_template("index.html")
 
-# return list of variants with gene equal to query parameter 'gene'
+
 @app.route('/variant')
 def variants():
+    """Return list of variants with gene equal to query parameter 'gene'"""
     genes = request.args.get('gene')
     response = {'attributes': Variant.attributes(), 'hits': 0, 'results': []}
+
     if genes is not None:
         genes = genes.split(',')
         variants = Variant.query.filter(Variant.gene.in_(genes)).all()
         response['hits'] = len(variants)
         response['results'] = [var.as_dict() for var in variants]
+
     return jsonify(response)
 
-# suggest list of genes with query parameter 'gene'
+
 genes = [v[0] for v in Variant.query.with_entities(Variant.gene).distinct().all()]
+
 @app.route('/suggest')
 def suggest_genes():
+    """Return a list of genes that start with the letters in query parameter 'gene'"""
     gene = request.args.get('gene')
     suggested_genes = [g for g in genes if bool(re.match(gene, g, re.I))]
     suggested_genes.sort()
