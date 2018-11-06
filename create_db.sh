@@ -1,10 +1,8 @@
 #!/bin/bash
 
-file="homework.db"
+file="./app/homework.db"
 #remove the database if it already exists
-if [ -f $file ] ; then
-    rm $file
-fi
+rm $file
 
 #unzip file
 #remove the tsv header
@@ -17,7 +15,7 @@ unzip -a -p $1 | tail -n +2 | awk '{gsub(/\"/,"")};1' | iconv -f utf-8 -t utf-8 
 
 #import tsv file into a sqlite db
 echo "loading tsv file..."
-sqlite3 ./app/homework.db <<EOF
+sqlite3 $file <<EOF
 .mode csv
 .separator \t
 CREATE TABLE variant (
