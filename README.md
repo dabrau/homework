@@ -11,6 +11,7 @@ These instructions will get you a copy of the project up and running on your loc
 ### Prerequisites
 
 - pip3
+- virtualenv
 - npm
 - all included bash scripts were executed on a Mac
 
@@ -27,7 +28,10 @@ Install python3 dependencies
 
 *From root folder:*
 ```
+virtualenv venv
+source venv/bin/activate
 pip3 install -r requirements.txt
+deactivate
 ```
 
 

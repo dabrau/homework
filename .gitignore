@@ -1,5 +1,6 @@
 __pycache__/
 data/
 client/node_modules/
+venv/
 
 homework.db
