@@ -31,7 +31,6 @@ Install python3 dependencies
 virtualenv venv
 source venv/bin/activate
 pip3 install -r requirements.txt
-deactivate
 ```
 
 
@@ -47,9 +46,11 @@ At this point the app can be run locally.
 
 *From root folder:*
 ```
-./start_server.sh
+source venv/bin/activate
+export FLASK_APP=app
+flask run
 ```
-You should be able find the app running at http://localhost:5000
+Open http://127.0.0.1:5000 in a browser.
 
 
 
@@ -78,5 +79,9 @@ npm start
 
 
 ## Running the tests
+*From root folder:*
+```
+pytest
+```
 
 
