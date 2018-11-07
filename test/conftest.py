@@ -4,7 +4,6 @@ import tempfile
 import pytest
 import sqlite3
 from homework.app import create_app
-#from homework.app.variant import db
 
 
 @pytest.fixture
