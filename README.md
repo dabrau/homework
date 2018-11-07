@@ -34,7 +34,8 @@ pip3 install -r requirements.txt
 ```
 
 
-Build SQLite3 db from zipped variant_results.tsv 'clinvitae_download.zip'
+Build SQLite3 db from zipped variant_results.tsv in clinvitae_download.zip
+http://clinvitae.invitae.com/download 
 
 *From root folder:*
 ```
